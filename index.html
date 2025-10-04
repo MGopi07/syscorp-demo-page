@@ -16,7 +16,6 @@
             height: 100%;
             font-family: 'Segoe UI', sans-serif;
             overflow: hidden;
-            /* Prevent scrolling */
         }
 
         .main-section {
@@ -25,39 +24,30 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            color: white;
-            z-index: 1;
-            padding: 80px 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
             text-align: center;
-            overflow: hidden;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         /* Black overlay */
         .main-section::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* background: rgba(0, 0, 0, 0.6); */
-            /* adjust opacity (0.3–0.8) */
-            z-index: -1;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 0;
         }
 
-        .main-section {
-            display: flex;
-            flex-direction: column;
-            /* justify-content: space-between; */
-            justify-content: space-evenly;
-            align-items: center;
-            /* background: linear-gradient(135deg, #213744, #0d6efd); */
-            color: white;
-            text-align: center;
-            height: 100vh;
-            /* Full viewport height */
-            padding: 20px;
-            box-sizing: border-box;
+        /* Keep content above overlay */
+        .main-section>* {
+            position: relative;
+            z-index: 1;
         }
 
         h1,
@@ -67,101 +57,11 @@
             margin: 5px 0;
         }
 
-        /* .services {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+        .main-heading {
+            color: #FDD835;
+            font-size: 42px;
         }
 
-        .circle-icon {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
-            cursor: pointer;
-        }
-
-        .circle-icon i {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            transition: transform 0.4s;
-        }
-
-        .circle-icon h6 {
-            font-size: 11px;
-            text-align: center;
-            margin: 0;
-        }
-
-
-        .circle-icon:hover {
-         
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
-        }
-
-
-
-
-        @media (min-width: 576px) {
-            .circle-icon {
-                width: 90px;
-                height: 90px;
-                padding: 18px;
-            }
-
-            .circle-icon i {
-                font-size: 1.3rem;
-            }
-
-            .circle-icon h6 {
-                font-size: 12px;
-            }
-
-
-        }
-
-        @media (min-width: 768px) {
-            .circle-icon {
-                width: 100px;
-                height: 100px;
-                padding: 20px;
-            }
-
-            .circle-icon i {
-                font-size: 1.5rem;
-            }
-
-            .circle-icon h6 {
-                font-size: 13px;
-            }
-
-        }
-
-      
-        @media (min-width: 992px) {
-            .circle-icon {
-                width: 120px;
-                height: 120px;
-                padding: 25px;
-            }
-
-            .circle-icon i {
-                font-size: 1.7rem;
-            }
-
-            .circle-icon h6 {
-                font-size: 14px;
-            }
-        } */
         .services {
             display: flex;
             justify-content: center;
@@ -180,30 +80,9 @@
         }
 
         .services li {
-            font-weight: bold;
             font-size: 1rem;
             cursor: pointer;
         }
-
-        /* .services ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .services li {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-        } */
-
 
         .cta {
             background: rgba(255, 255, 255, 0.1);
@@ -218,11 +97,6 @@
             background: #25D366;
             color: white;
             border: 1px solid #25D366;
-            transition: 0.3s ease-in-out;
-        }
-
-        #whatsappBtn:hover {
-            transform: translateY(-5px);
         }
 
         #whatsappBtn .fab.fa-whatsapp {
@@ -245,8 +119,51 @@
             }
         }
 
-        footer {
-            font-size: 0.9rem;
+        /* ✅ Responsive image sizing */
+        .center-image {
+            width: 50%;
+            max-width: 450px;
+            height: auto;
+        }
+
+        /* ✅ Adjust layout for tablets and smaller devices */
+        @media (max-width: 992px) {
+            .center-image {
+                width: 60%;
+                max-width: 400px;
+            }
+
+            .main-heading {
+                font-size: 34px;
+            }
+
+            p.lead {
+                font-size: 1rem;
+            }
+        }
+
+        /* ✅ Adjust layout for mobile devices */
+        @media (max-width: 576px) {
+            .center-image {
+                width: 80%;
+                max-width: 320px;
+            }
+
+            .main-heading {
+                font-size: 26px;
+            }
+
+            h4 {
+                font-size: 16px;
+            }
+
+            p.lead {
+                font-size: 14px;
+            }
+
+            .cta {
+                padding: 10px 15px;
+            }
         }
     </style>
 </head>
@@ -254,67 +171,40 @@
 <body>
     <section class="main-section">
 
-        <!-- Hero -->
         <div>
-            <h1>Personal Branding & Business Branding</h1>
+            <h1 class="main-heading">Personal Branding & Business Branding</h1>
             <p class="lead">Helping Brands Grow Smarter! 🚀<br>We Are Digital Marketing Experts</p>
             <h4>✨ Let’s grow your presence. Let’s grow your success.</h4>
+            <div class="services">
+                <ul>
+                    <li>1. SEO,</li>
+                    <li>2. Branding,</li>
+                    <li>3. Social Media,</li>
+                    <li>4. Paid Ads</li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Services -->
-        <!-- <div class="services">
-            <div class="circle-icon">
-                <i class="fas fa-search"></i>
-                <h6 class="mt-2">SEO</h6>
-            </div>
-            <div class="circle-icon">
-                <i class="fas fa-bullhorn"></i>
-                <h6 class="mt-2">Branding</h6>
-            </div>
-            <div class="circle-icon">
-                <i class="fab fa-facebook-f "></i>
-                <h6 class="mt-2">Social Media</h6>
-            </div>
-            <div class="circle-icon">
-                <i class="fas fa-chart-line"></i>
-                <h6 class="mt-2">Paid Ads</h6>
-            </div>
-        </div> -->
-        <div class="services">
-            <ul class="">
-                <li>1.SEO,</li>
-                <li>2.Branding,</li>
-                <li>3.Social Media,</li>
-                <li>4.Paid Ads</li>
-            </ul>
-
+        <div>
+            <img src="/image/center-img.png" alt="Center Graphic" class="img-fluid center-image">
         </div>
 
-        <!-- CTA -->
         <div class="cta">
-            <!-- <h2>SEO | Branding | Social Media | Paid Ads</h2> -->
             <p class="lead">Let’s create a growth strategy for your business today!</p>
             <a id="whatsappBtn" href="#" class="btn btn-light btn-lg mt-2">
                 <i class="fab fa-whatsapp"></i>
-                Contact Us on WhatsApp
+                WhatsApp Now
             </a>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2025 Digital Marketing Experts | Designed for Growth</p>
-        </footer>
 
     </section>
 
     <script>
         const whatsappUrl = "https://wa.link/hef29p";
-
         document.body.addEventListener("click", function () {
             window.open(whatsappUrl, "_blank");
         });
     </script>
-
 
 </body>
 
