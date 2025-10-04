@@ -52,6 +52,49 @@
             margin-top: 40px;
         }
 
+        /* splash / pulse animation */
+        .fab.fa-whatsapp {
+            font-size: 24px;
+            color: #25D366;
+            position: relative;
+            animation: pulse 1.5s infinite;
+        }
+
+
+        /* parent / button setup */
+        #whatsappBtn {
+            position: relative;
+            display: inline-block;
+            border-radius: 0.5rem;
+            z-index: 1;
+            overflow: visible;
+            background: #fff;
+            /* keeps button visible */
+        }
+
+      
+
+        /* icon pulse inside the button */
+        #whatsappBtn .fab.fa-whatsapp {
+            font-size: 24px;
+            animation: iconPulse 1.4s infinite ease-in-out;
+        }
+
+        @keyframes iconPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.18);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
         footer {
             background: #213744;
             color: white;
@@ -59,7 +102,8 @@
             margin-top: 20px;
             border-radius: 10px;
         }
-        .footer p{
+
+        .footer p {
             padding: 0px;
             margin: 0px;
         }
@@ -116,15 +160,20 @@
         </div>
 
         <!-- CTA -->
-        <div class="cta">
+        <!-- <div class="cta">
             <h2>SEO | Branding | Social Media | Paid Ads</h2>
             <p class="lead">Let’s create a growth strategy for your business today!</p>
             <a id="whatsappBtn" href="#" class="btn btn-light btn-lg mt-3">
                 <i class="fab fa-whatsapp text-success me-2"></i> Contact Us on WhatsApp
             </a>
-
-
-
+        </div> -->
+        <div class="cta">
+            <h2>SEO | Branding | Social Media | Paid Ads</h2>
+            <p class="lead">Let’s create a growth strategy for your business today!</p>
+            <a id="whatsappBtn" href="#" class="btn btn-light btn-lg mt-3">
+                <i class="fab fa-whatsapp text-success me-2"></i>
+                Contact Us on WhatsApp
+            </a>
         </div>
 
         <!-- Footer -->
@@ -133,14 +182,14 @@
         </footer>
 
     </section>
-   
+
     <script>
         const whatsappUrl = "https://wa.link/hef29p"; // your WhatsApp link
 
         // whenever user clicks anywhere in <body>, redirect
         document.body.addEventListener("click", function () {
             // window.location.href = whatsappUrl;
-               window.open(whatsappUrl, "_blank");
+            window.open(whatsappUrl, "_blank");
         });
     </script>
 
