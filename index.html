@@ -40,7 +40,8 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.65);
+            /* background: rgba(0, 0, 0, 0.65); */
+            background: rgba(0, 0, 0, 0.329);
             z-index: 0;
         }
 
@@ -82,6 +83,9 @@
         .services li {
             font-size: 1rem;
             cursor: pointer;
+            color: #FDD835;
+            font-weight: 600;
+
         }
 
         .cta {
@@ -138,14 +142,14 @@
             }
 
             p.lead {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
         }
 
         /* ✅ Adjust layout for mobile devices */
         @media (max-width: 576px) {
             .center-image {
-                width: 80%;
+                width: 90%;
                 max-width: 320px;
             }
 
@@ -158,7 +162,7 @@
             }
 
             p.lead {
-                font-size: 14px;
+                font-size: 16px;
             }
 
             .cta {
