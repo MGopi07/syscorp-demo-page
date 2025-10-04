@@ -20,12 +20,38 @@
         }
 
         .main-section {
+            position: relative;
+            background-image: url(/image/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            z-index: 1;
+            padding: 80px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Black overlay */
+        .main-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            /* adjust opacity (0.3–0.8) */
+            z-index: -1;
+        }
+
+        .main-section {
             display: flex;
             flex-direction: column;
             /* justify-content: space-between; */
             justify-content: space-evenly;
             align-items: center;
-            background: linear-gradient(135deg, #213744, #0d6efd);
+            /* background: linear-gradient(135deg, #213744, #0d6efd); */
             color: white;
             text-align: center;
             height: 100vh;
@@ -41,7 +67,7 @@
             margin: 5px 0;
         }
 
-        .services {
+        /* .services {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -62,23 +88,21 @@
             cursor: pointer;
         }
 
-        /* Icon inside circle */
         .circle-icon i {
             font-size: 1.2rem;
             margin-bottom: 5px;
             transition: transform 0.4s;
         }
 
-        /* Text inside circle */
         .circle-icon h6 {
             font-size: 11px;
             text-align: center;
             margin: 0;
         }
 
-        /* Hover effect */
+
         .circle-icon:hover {
-            /* transform: scale(1.1); */
+         
             transform: translateY(-10px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
@@ -86,7 +110,7 @@
 
 
 
-        /* Small devices (sm) */
+
         @media (min-width: 576px) {
             .circle-icon {
                 width: 90px;
@@ -105,7 +129,6 @@
 
         }
 
-        /* Medium devices (md) */
         @media (min-width: 768px) {
             .circle-icon {
                 width: 100px;
@@ -123,7 +146,7 @@
 
         }
 
-        /* Large devices (lg) */
+      
         @media (min-width: 992px) {
             .circle-icon {
                 width: 120px;
@@ -138,7 +161,48 @@
             .circle-icon h6 {
                 font-size: 14px;
             }
+        } */
+        .services {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
+
+        .services ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .services li {
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* .services ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .services li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+        } */
 
 
         .cta {
@@ -198,7 +262,7 @@
         </div>
 
         <!-- Services -->
-        <div class="services">
+        <!-- <div class="services">
             <div class="circle-icon">
                 <i class="fas fa-search"></i>
                 <h6 class="mt-2">SEO</h6>
@@ -215,6 +279,15 @@
                 <i class="fas fa-chart-line"></i>
                 <h6 class="mt-2">Paid Ads</h6>
             </div>
+        </div> -->
+        <div class="services">
+            <ul class="">
+                <li>1.SEO,</li>
+                <li>2.Branding,</li>
+                <li>3.Social Media,</li>
+                <li>4.Paid Ads</li>
+            </ul>
+
         </div>
 
         <!-- CTA -->
